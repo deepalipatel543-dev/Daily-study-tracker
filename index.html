@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Daily Study Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <h1>Daily Study Tracker</h1>
+
+        <p class="subtitle">
+            Track your daily study progress
+        </p>
+
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard">
+
+            <div class="stat-card">
+
+                <h3>Total Hours</h3>
+
+                <p id="totalHours">
+                    0 hrs
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Total Sessions</h3>
+
+                <p id="totalSessions">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Average Time</h3>
+
+                <p id="averageHours">
+                    0 hrs
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Progress</h3>
+
+                <p id="progress">
+                    0%
+                </p>
+
+            </div>
+
+        </div>
+        <!-- DAILY STUDY GOAL -->
+
+<div class="card">
+
+    <h2>Daily Study Goal</h2>
+
+    <label for="dailyGoal">
+        Set Daily Goal (hours):
+    </label>
+
+    <input
+        type="number"
+        id="dailyGoal"
+        placeholder="Example: 4"
+        min="1"
+        step="0.5"
+    >
+
+    <button onclick="setDailyGoal()">
+        Set Goal
+    </button>
+
+    <div id="goalStatus">
+
+        <p>
+            No daily goal set.
+        </p>
+
+    </div>
+
+</div>
+
+
+        <!-- ADD STUDY -->
+
+        <div class="card">
+
+            <h2>Add Study Session</h2>
+
+
+            <label for="subject">
+                Subject:
+            </label>
+
+            <input
+                type="text"
+                id="subject"
+                placeholder="Enter subject"
+            >
+
+
+            <label for="topic">
+                Topic:
+            </label>
+
+            <input
+                type="text"
+                id="topic"
+                placeholder="Enter topic"
+            >
+
+
+            <label for="hours">
+                Study Time:
+            </label>
+
+            <input
+                type="number"
+                id="hours"
+                placeholder="Enter hours"
+                min="0"
+                step="0.5"
+            >
+
+
+            <label for="studyDate">
+                Study Date:
+            </label>
+
+            <input
+                type="date"
+                id="studyDate"
+            >
+
+
+            <button onclick="addStudy()">
+                Add Study
+            </button>
+
+        </div>
+
+
+        <!-- WEEKLY PROGRESS -->
+
+        <div class="card">
+
+            <h2>Weekly Progress</h2>
+
+
+            <div class="chart">
+
+
+                <div class="bar">
+
+                    <div id="monBar"></div>
+
+                    <span>Mon</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="tueBar"></div>
+
+                    <span>Tue</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="wedBar"></div>
+
+                    <span>Wed</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="thuBar"></div>
+
+                    <span>Thu</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="friBar"></div>
+
+                    <span>Fri</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="satBar"></div>
+
+                    <span>Sat</span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div id="sunBar"></div>
+
+                    <span>Sun</span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- SUBJECT SUMMARY -->
+
+<div class="card">
+
+    <h2>Subject-wise Summary</h2>
+
+    <div id="subjectSummary">
+
+        <!-- Subject summary will appear here -->
+
+    </div>
+
+</div>
+
+
+        <!-- STUDY HISTORY -->
+
+        <div class="card">
+
+            <h2>Study History</h2>
+
+
+            <label for="searchStudy">
+                Search:
+            </label>
+
+            <input
+                type="text"
+                id="searchStudy"
+                placeholder="Search subject or topic..."
+                oninput="filterStudies()"
+            >
+
+
+            <label for="filterDate">
+                Filter by Date:
+            </label>
+
+            <input
+                type="date"
+                id="filterDate"
+                onchange="filterStudies()"
+            >
+
+
+            <button onclick="clearFilters()">
+                Clear Filters
+            </button>
+
+
+            <div id="studyList">
+
+                <!-- Study records will appear here -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
